@@ -21,6 +21,7 @@ class CreateStaffTable extends Migration
             $table->text('address');
             $table->integer('salary');
             $table->timestamps();
+
         });
     }
 
