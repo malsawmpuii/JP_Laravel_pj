@@ -42,20 +42,20 @@ class PostController extends Controller
         $request->validate([
             "title"=>"required",
             "photo"=>"required",
-            "category_id"=>"required",
+            "category"=>"required",
             "content"=>"required"
         ]);
 
         //if file include, upload
          if ($request->file()) {
              $fileName= time().'_'.$request->photo->getClientOriginalName();
-             $filePath= $request->file('photo')->storeAs('staff_photo',$fileName,'public');
+             $filePath= $request->file('photo')->storeAs('posts_photo',$fileName,'public');
              $filePath='/storage/'.$filePath;
          }
         //data store
 
          $post= new Post;
-         $post->name= $request->name;
+         $post->title= $request->title;
          $post->photo= $filePath;
          $post->category_id= $request->category;
          $post->content=$request->content;
@@ -73,7 +73,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('backend.posts.detail',compact('posts'));
+        return view('backend.posts.detail',compact('post'));
     }
 
     /**
@@ -85,7 +85,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('backend.posts.edit',compact('posts','categories'));
+        return view('backend.posts.edit',compact('post','categories'));
 
     }
 
@@ -101,19 +101,23 @@ class PostController extends Controller
                 //validation
         $request->validate([
             "title"=>"required",
-            "photo"=>"required",
-            "category_id"=>"required",
+            "photo"=>"sometimes",
+            "category"=>"required",
             "content"=>"required"
         ]);
 
         //if file include, upload
          if ($request->file()) {
              $fileName= time().'_'.$request->photo->getClientOriginalName();
-             $filePath= $request->file('photo')->storeAs('staff_photo',$fileName,'public');
+             $filePath= $request->file('photo')->storeAs('posts_photo',$fileName,'public');
              $filePath='/storage/'.$filePath;
          }
+         else{
+            $filePath= $request->oldprofile;
+
+         }
         //data store
-         $post->name= $request->name;
+         $post->title= $request->title;
          $post->photo= $filePath;
          $post->category_id= $request->category;
          $post->content=$request->content;

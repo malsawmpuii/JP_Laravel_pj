@@ -7,7 +7,7 @@
       <h1>Post List</h1>
       <a href="{{route('posts.create')}}" class="btn btn-success">Add New Post</a>
       {{-- Table --}}
-      <table class="table my-3">
+      <table class="table table-bordered my-3">
         <thead>
           <tr>
             <th>No</th>
@@ -21,7 +21,7 @@
             <tr>
               <td>{{$row->id}}</td>
               <td>{{$row->title}}</td>
-              <td>{{$row->category_id}}</td>
+              <td>{{$row->category->name}}</td>
               <td>
                 <a href="{{route('posts.show',$row->id)}}" class="btn btn-info">Detail</a>
                 <a href="{{route('posts.edit',$row->id)}}" class="btn btn-warning">Edit</a>

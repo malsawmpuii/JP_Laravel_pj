@@ -20,7 +20,7 @@
     <div class="form-group">
       <label for="InputDepartment">Categories:</label>
       <select name="category" class="form-control">
-        <optgroup label="Choose Department">
+        <optgroup label="Choose Categories">
           @foreach($categories as $row)
           <option value="{{$row->id}}">{{$row->name}}</option>
           @endforeach
@@ -40,16 +40,14 @@
 
     <div class="form-group">
       <label for="summernote">Content:</label>
-      {{-- <textarea class="form-control" name="content" id="summernote"></textarea> --}}
-      <div id="summernote"></div>
+        <textarea class="form-control" name="content" id="summernote"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>
   </form>
 @endsection
-
 @section('script')
-  <script type="text/javascript">
+  <script type="text/javascript" name="content">
     $('#summernote').summernote({
       placeholder: 'Your Content Here!',
       tabsize: 2,

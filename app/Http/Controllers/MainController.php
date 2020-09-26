@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class MainController extends Controller
 {
@@ -13,6 +14,11 @@ class MainController extends Controller
 
   public function detail($id)
   {
-    return view('frontend.detail');
+  	$post=Post::find($id);
+    return view('frontend.detail',compact('post'));
+
+    /*$items=Item::where('brand_id',$id)->get();
+
+     return view('/frontend/brand',compact('items'));*/
   }
 }

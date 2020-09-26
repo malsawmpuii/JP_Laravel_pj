@@ -7,7 +7,23 @@
 
 	<script src="{{asset('js/app.js')}}" defer></script>
 
-	<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">l
+	<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+
+      <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <!-- summernote css/js -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/summernote.min.css')}}">
+    <script src="{{asset('js/summernote.min.js')}}" defer></script>
+ 
+
+
 </head>
 <body>
  <div id="app">
@@ -67,9 +83,7 @@
 	 <script type="text/javascript" src="{{asset('frontend_template/vendor/jquery/jquery.min.js')}}"></script>
 
 	@yield('script')
-	{{-- <script type="text/javascript">
-		alert('Hi');
-	</script> --}}
+
 </div>
 </body>
 </html>
