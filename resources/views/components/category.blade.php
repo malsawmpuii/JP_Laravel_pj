@@ -10,7 +10,7 @@
 				<ul class="list-unstyled mb-0">
 					@foreach($categories as $row)
 					<li>
-						<a href="#">{{$row->name}}</a>
+						<a href="{{route('categorydetail',$row->id)}}">{{$row->name}}</a>
 					</li>
 					@endforeach
 				</ul>

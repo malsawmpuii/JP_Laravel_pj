@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
+/*use App\Category;
+*/
 class MainController extends Controller
 {
     public function main($value='')
@@ -21,4 +24,11 @@ class MainController extends Controller
 
      return view('/frontend/brand',compact('items'));*/
   }
+
+  public function category_detail($id)
+   {
+     $posts=Post::where('category_id',$id)->get();
+
+     return view('/frontend/category_detail',compact('posts'));
+   }
 }

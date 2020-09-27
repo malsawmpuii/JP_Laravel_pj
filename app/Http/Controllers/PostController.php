@@ -16,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         $posts=Post::all();
-        return view('backend.posts.index',compact('posts'));
+        $categories=Category::all();
+        return view('backend.posts.index',compact('posts','categories'));
     }
 
     /**

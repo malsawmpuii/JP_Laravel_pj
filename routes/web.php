@@ -25,6 +25,7 @@ Route::get('detail/{id}','MainController@detail')->name('detailpage');
 
 Route::get('main/{key}','PageController@main')->name('mainpage');
 
+Route::get('category/{id}','MainController@category_detail')->name('categorydetail');
 
 Auth::routes(['register' => false]);
 
